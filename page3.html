@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>บริษัท | Nike</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0f0f0f;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo {
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .company-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .company-content h1 {
+            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .company-content h2 {
+            font-size: 6rem;
+        }
+
+        .company-content h3 {
+            font-size: 6rem;
+        }
+
+        .video-container {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .play-pause-btn {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .play-pause-btn:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .text-container {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .text-container h4 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .text-container h5 {
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 100%; /* ปรับขนาดให้เต็มหน้าจอ */
+            max-width: 1900px; /* กำหนดขนาดสูงสุด */
+            border-radius: 10px;
+        }
+
+        /* เพิ่มพื้นที่สำหรับภาพเล็กๆ */
+        .small-image-container {
+            text-align: left; /* ขยับภาพไปทางซ้าย */
+            margin-top: 40px;
+            margin-left: 40px; /* เพิ่มระยะห่างจากซ้าย */
+            margin-right: 20px; /* เพิ่มระยะห่างด้านขวาของภาพ */
+            float: left; /* ใช้ float ให้ภาพอยู่ทางซ้าย */
+        }
+
+        .small-image-container img {
+            width: 100%; /* ใช้ขนาดเดิม */
+            max-width: 400px; /* กำหนดขนาดสูงสุด */
+            border-radius: 1px;
+        }
+
+        .small-image-text {
+            margin-top: 5px; /* ลดระยะห่างระหว่างชื่อและตำแหน่ง */
+        }
+
+        .name {
+            font-size: 2.5rem; /* ขนาดของชื่อ */
+            font-weight: bold;
+        }
+
+        .position {
+            font-size: 2rem; /* ขนาดของตำแหน่ง */
+            font-weight: normal;
+            margin-top: 5px; /* ลดระยะห่างระหว่างชื่อและตำแหน่ง */
+        }
+
+        /* ปรับการแสดงลิงก์ "เรื่องราว" และ "บริษัท" */
+        .story-link {
+            position: absolute;
+            top: 20px;
+            right: 120px; /* ห่างจากขวา */
+            background-color: #0f0f0f;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .company-link {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* ขยับใกล้ขวา */
+            background-color: #0f0f0f;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .story-link:hover, .company-link:hover {
+            background-color: transparent;
+            color: #ccc;
+        }
+
+        /* เพิ่มการจัดการ "ทีมผู้นำ" ให้อยู่ใต้ภาพสองภาพ */
+        .leadership-section {
+            clear: both; /* ทำให้ "ทีมผู้นำ" ไม่ซ้อนทับกับภาพ */
+            text-align: center;
+            margin-top: 60px;  /* เพิ่มพื้นที่ด้านบน */
+            padding: 20px;
+        }
+
+        .leadership-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .leadership-section p {
+            font-size: 1.8rem;
+            font-weight: normal;
+            color: #ccc;
+        }
+
+        /* เพิ่มส่วนการจัดการภาพสองรูปด้านล่าง */
+        .bottom-images-container {
+            text-align: left;
+            margin-top: 40px;
+            margin-left: 40px; /* เพิ่มระยะห่างจากซ้าย */
+            margin-right: 20px; /* เพิ่มระยะห่างด้านขวาของภาพ */
+            float: left; /* ใช้ float ให้ภาพอยู่ทางซ้าย */
+        }
+
+        .bottom-image {
+            width: 100%; /* ให้ภาพด้านล่างมีขนาดเต็มหน้าจอ */
+            max-width: 1900px; /* กำหนดขนาดสูงสุด */
+            height: auto;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างภาพ */
+        }
+        .bottom-image p {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* ทำให้รูปมีระยะห่างจากกัน */
+        .bottom-image {
+            margin-right:50%;
+        }
+        .bottom-image:last-child {
+            margin-right: 0;
+        }
+        .small-image-container {
+            text-align: left; /* ขยับภาพไปทางซ้าย */
+            margin-top: 40px;
+            margin-left: 40px; /* เพิ่มระยะห่างจากซ้าย */
+            margin-right: 10px; /* เพิ่มระยะห่างด้านขวาของภาพ */
+            float: left; /* ใช้ float ให้ภาพอยู่ทางซ้าย */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="78681d8ca868c6076b3f20eeb99c6549.PNG" class="logo" alt="Nike Logo">
+    </a>
+</header>
+
+<!-- ลิงก์ "เรื่องราว" และ "บริษัท" -->
+<a href="story.html" class="story-link">เรื่องราว</a>
+<a href="page3.html" class="company-link">บริษัท</a>
+
+<div class="company-content">
+    <h1>บริษัท</h1>
+    <h2>ยินดีต้อนรับสู่</h2>
+    <h3>NIKE, INC.</h3>
+</div>
+
+<div class="video-container">
+    <video id="nikeVideo" autoplay loop muted>
+        <source src="NIKE_COMPANY_loop_032323.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button class="play-pause-btn" id="playPauseBtn" onclick="togglePlayPause()">❚❚ หยุดชั่วคราว</button>
+</div>
+
+<div class="text-container">
+    <h4>NIKE, Inc. คือทีมที่ประกอบด้วยแบรนด์ Nike, Jordan และ</h4>
+    <h5>Converse ซึ่งขับเคลื่อนด้วยจุดประสงค์ร่วมกันเพื่อสร้างความเปลี่ยนแปลงที่ยั่งยืน</h5>
+</div>
+
+<!-- ส่วนสำหรับภาพใหญ่ -->
+<div class="image-container">
+    <img src="final-tribrand-black-3000x2000.jpg" alt="Nike Image">
+</div>
+
+<!-- ส่วนสำหรับภาพเล็ก -->
+<div class="small-image-container">
+    <img src="kukwjtei.png" alt="Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Philip H.Knight</p>
+        <p class="position"><u>ประธานกิตติคุณ</u></p>
+    </div>
+</div>
+
+<!-- ส่วนสำหรับภาพเล็กที่สอง -->
+<div class="small-image-container">
+    <img src="c4p2ohif.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Mark Parker</p>
+        <p class="position"><u>ประธานฝ่ายบริหาร</u></p>
+    </div>
+</div>
+
+<!-- ส่วนสำหรับ "ทีมผู้นำ" -->
+<div class="leadership-section" style="margin-left: 10px; text-align: left;">
+    <h2>ทีม Leader</h2>
+</div>
+
+<!-- ส่วนสำหรับภาพสองรูปด้านล่าง -->
+<div class="small-image-container">
+    <img src="kptbw83i.png" alt="Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Venkatesh Alagirisamy</p>
+        <p class="position"><u>ประธานเจ้าหน้าที่ฝ่ายซัพพลายเชน</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="jndwi9m2.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Thomas Clarke</p>
+        <p class="position"><u>ประธานฝ่ายนวัตกรรม</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="lg5yoodt.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Matthew Friend</p>
+        <p class="position"><u>รองประธานฝ่ายบริหารและหัวหน้าฝ่ายการเงิน</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="a3wia89u.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Ann Miller</p>
+        <p class="position"><u>รองประธานฝ่ายบริหารและหัวหน้าฝ่ายกฎหมาย</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="pc4b9bdk.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Heidi O'Neill</p>
+        <p class="position"><u>ประธานฝ่ายลูกค้า สินค้า และแบรนด์</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="94kmtvlq.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">KeJuan Wilkins</p>
+        <p class="position"><u>รองประธานฝ่ายบริหารและหัวหน้าเจ้าหน้าที่ฝ่ายการสื่อสาร</u></p>
+    </div>
+</div>
+<div class="small-image-container">
+    <img src="8xtyklp4.png" alt="Another Small Nike Image">
+    <div class="small-image-text">
+        <p class="name">Craig Williams</p>
+        <p class="position"><u>ประธานฝ่าย Geo และมาร์เกตเพลส</u></p>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById('nikeVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    function togglePlayPause() {
+        if (video.paused) {
+            video.play();
+            playPauseBtn.textContent = '❚❚ หยุดชั่วคราว';
+        } else {
+            video.pause();
+            playPauseBtn.textContent = '▶ เล่นต่อ';
+        }
+    }
+</script>
+
+</body>
+</html>

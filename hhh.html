@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ฟอร์มกล่องข้อความ</title>
+</head>
+<body>
+
+    <h2>ฟอร์มติดต่อ</h2>
+
+    <form action="/submit_form" method="post">
+        <label for="name">ชื่อ:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">อีเมลล์:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">ข้อความ:</label>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="ส่ง">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Nike</title>
+
+    <style>
+
+        /* โหลดฟอนต์ K2D-ThinItalic */
+        @font-face {
+            font-family: 'K2D-ThinItalic';
+            src: url('fonts/K2D-ThinItalic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        
+        header {
+            background: #0f0f0f;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo {
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .hero-text h1, .hero-text h2, .hero-text h3 {
+            font-family: 'Oswald-SemiBold', sans-serif;
+            font-size: 10rem;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hero-text h1.show, .hero-text h2.show, .hero-text h3.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-text p {
+            font-size: 3rem;
+            margin: 20px 0 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hero-text p.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-links {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .story-link {
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease;
+        }
+        .story-link:hover {
+            color: gray;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1, .hero-text h2, .hero-text h3 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1, .hero-text h2, .hero-text h3 {
+                font-size: 3rem;
+            }
+            .hero-text p {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="#0f0f0f">
+<header>
+    <a href="index.html">
+        <img src="78681d8ca868c6076b3f20eeb99c6549.png" class="logo">
+    </a>
+</header>
+
+<div class="story-links">
+    <a href="story.html" class="story-link">เรื่องราว</a>
+    <a href="page3.html" class="story-link">บริษัท</a>
+</div>
+
+<audio id="background-audio" autoplay>
+    <source src="Just Do It.mp3" type="audio/mpeg">
+    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.2">
+
+</audio>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1 id="just"><font color="White">Just</font></h1>
+        <h2 id="do"><font color="White">Do</font></h2>
+        <h3 id="it"><font color="White">It</font></h3>
+        <p  id="subtext">ลงมือทำเลย อย่ากลัว</p>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        setTimeout(() => document.getElementById('just').classList.add('show'), 40);
+        setTimeout(() => document.getElementById('do').classList.add('show'), 400);
+        setTimeout(() => document.getElementById('it').classList.add('show'), 800);
+        setTimeout(() => document.getElementById('subtext').classList.add('show'), 1200);
+
+        let audio = document.getElementById("background-audio");
+        audio.play().catch(error => console.log("Autoplay error: ", error));
+    };
+</script>
+</body>
+</html>
